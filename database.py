@@ -9,6 +9,39 @@ def get_connection():
 
     return conn
 
+def create_tables():
+
+    conn = get_connection()
+
+    cursor = conn.cursor()
+
+    cursor.execute(
+        """
+        CREATE TABLE IF NOT EXISTS profile(
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT,
+            branch TEXT,
+            cgpa REAL,
+            skills TEXT
+        )
+        """
+    )
+
+    cursor.execute(
+        """
+        CREATE TABLE IF NOT EXISTS companies(
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            company_name TEXT,
+            role TEXT,
+            status TEXT
+        )
+        """
+    )
+
+    conn.commit()
+
+    conn.close()
+
 
 # ---------------- PROFILE ---------------- #
 

@@ -7,6 +7,9 @@ from profile import profile_page
 from placement_tracker import placement_tracker_page
 from resume_analyser import resume_analyzer_page
 from dashboard import dashboard_page
+from database import create_tables
+
+create_tables()
 
 st.title("🎯 AI Placement Assistant")
 
