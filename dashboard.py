@@ -64,18 +64,22 @@ def dashboard_page():
 
     fig2, ax2 = plt.subplots()
 
-    ax2.pie(
+    if sum(values) > 0:
+
+        ax2.pie(
         values,
         labels=labels,
         autopct="%1.1f%%",
         colors=["blue", "orange", "green", "red"]
-    )
+        )
 
-    ax2.set_title(
-        "Applications Distribution"
-    )
+        ax2.set_title("Applications Distribution")
 
-    st.pyplot(fig2)
+        st.pyplot(fig2)
+
+    else:
+
+        st.info("No applications available to display the pie chart.")
 
     # Success Rate
     st.subheader("🎯 Placement Success Rate")
